@@ -16,11 +16,27 @@ module ::Magnets::PathMap::Definition
     
   end
 
+  ##########
+  #  name  #
+  ##########
+
+  attr_reader :name
+
   ###########
   #  paths  #
   ###########
   
   attr_configuration_unique_array  :paths do
+    
+    #====================#
+    #  regularize_paths  #
+    #====================#
+
+    def regularize_paths( *paths_and_or_parts )
+      
+      return ::Magnets::Path::Parser.regularize_path_or_parts( *paths_and_or_parts )
+      
+    end
     
     #=======#
     #  []=  #
@@ -31,8 +47,8 @@ module ::Magnets::PathMap::Definition
       paths = nil
       path = nil
       
-      if paths_and_or_parts.is_a?( Array )
-        paths = ::Magnets::Path::Parser.regularize_path_or_parts( *paths_and_or_parts )
+      if paths_and_or_parts.is_a?( ::Array )
+        paths = regularize_paths( *paths_and_or_parts )
       else
         path = paths_and_or_parts
       end
@@ -74,7 +90,7 @@ module ::Magnets::PathMap::Definition
     
     def insert( index, *paths_and_or_parts )
 
-      super( index, *::Magnets::Path::Parser.regularize_path_or_parts( *paths_and_or_parts ) )
+      super( index, *regularize_paths( *paths_and_or_parts ) )
       
     end
 
@@ -84,7 +100,7 @@ module ::Magnets::PathMap::Definition
 
     def push( *paths_and_or_parts )
 
-      super( *::Magnets::Path::Parser.regularize_path_or_parts( *paths_and_or_parts ) )
+      super( *regularize_paths( *paths_and_or_parts ) )
 
     end
 
@@ -96,7 +112,7 @@ module ::Magnets::PathMap::Definition
 
       paths_and_or_parts.each do |this_paths_and_or_parts|
 
-        super( *::Magnets::Path::Parser.regularize_path_or_parts( *this_paths_and_or_parts ) )
+        super( *regularize_paths( *this_paths_and_or_parts ) )
         
       end
       
@@ -110,7 +126,7 @@ module ::Magnets::PathMap::Definition
 
     def replace( paths_and_or_parts )
 
-      super( ::Magnets::Path::Parser.regularize_path_or_parts( *paths_and_or_parts ) )
+      super( regularize_paths( *paths_and_or_parts ) )
 
     end
     
@@ -120,16 +136,10 @@ module ::Magnets::PathMap::Definition
     
     def unshift( *paths_and_or_parts )
       
-      super( *::Magnets::Path::Parser.regularize_path_or_parts( *paths_and_or_parts ) )
+      super( *regularize_paths( *paths_and_or_parts ) )
       
     end
     
   end
-  
-	################
-	#  view_stack  #
-	################
-	
-  attr_configuration_array  :view_stack
-  
+    
 end

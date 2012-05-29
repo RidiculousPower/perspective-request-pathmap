@@ -15,13 +15,23 @@ module ::Magnets::PathMap::Matching
 	    
 	    request_path.attach_to_path_definition( this_path )
 	    
-	    # if we match _and_ have no more parts left then we match this path
-	    break if matched = this_path.match( request_path ) and ! request_path.current_part
+	    break if matched = match_condition( this_path, request_path )
 	    
     end
-    
+
     return matched
 	  
+  end
+
+  #####################
+	#  match_condition  #
+  #####################
+
+  def match_condition( path, request_path )
+    
+    # if we match _and_ have no more parts left then we match this path
+    return path.match( request_path ) && ! request_path.current_part
+    
   end
 
 end
