@@ -26,7 +26,7 @@ module ::Magnets::PathMap::Definition
   #  paths  #
   ###########
   
-  attr_configuration_unique_array  :paths do
+  attr_unique_array  :paths do
     
     #====================#
     #  regularize_paths  #
