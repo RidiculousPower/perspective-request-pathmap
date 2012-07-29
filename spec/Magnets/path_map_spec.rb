@@ -1,5 +1,5 @@
 
-require_relative '../../lib/magnets-pathmap.rb'
+require_relative '../../lib/magnets-path_map.rb'
 
 describe ::Magnets::PathMap do
   
