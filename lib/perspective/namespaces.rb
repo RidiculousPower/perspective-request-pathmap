@@ -1,5 +1,5 @@
 
-class ::Magnets::PathMap
+class ::Perspective::Request::PathMap
   module Definition
   end
   module Matching

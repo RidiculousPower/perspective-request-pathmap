@@ -1,5 +1,5 @@
 
-module ::Magnets::PathMap::Definition
+module ::Perspective::Request::PathMap::Definition
   
   include ::CascadingConfiguration::Array
   include ::CascadingConfiguration::Array::Unique
@@ -34,7 +34,7 @@ module ::Magnets::PathMap::Definition
 
     def regularize_paths( *paths_and_or_parts )
       
-      return ::Magnets::Path::Parser.regularize_path_or_parts( *paths_and_or_parts )
+      return ::Perspective::Request::Path::Parser.regularize_path_or_parts( *paths_and_or_parts )
       
     end
     

@@ -1,5 +1,5 @@
 
-module ::Magnets::PathMap::URLs
+module ::Perspective::Request::PathMap::URLs
 
   ###################
   #  construct_url  #

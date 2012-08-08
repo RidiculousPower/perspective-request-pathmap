@@ -1,5 +1,5 @@
 
-class ::Magnets::PathMap::BasePath < ::Magnets::PathMap
+class ::Perspective::Request::PathMap::BasePath < ::Perspective::Request::PathMap
   
   #####################
 	#  match_condition  #
