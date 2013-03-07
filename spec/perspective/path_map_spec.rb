@@ -1,14 +1,15 @@
+# -*- encoding : utf-8 -*-
 
-require_relative '../../lib/perspective/request/path_map.rb'
+require_relative '../../lib/perspective/request/pathmap.rb'
 
-describe ::Perspective::Request::PathMap do
+describe ::Perspective::Request::Pathmap do
   
   ################
   #  initialize  #
   ################
   
-  it 'can bundle a set of paths with a name' do
-    pathmap = ::Perspective::Request::PathMap.new( :name, :variable, 'some/path', /parts/, ::Perspective::Request::Path.new( 'some/path' ), 'some/other', 'path', ''  )
+  it 'will bundle a set of paths with a name' do
+    pathmap = ::Perspective::Request::Pathmap.new( :name, :variable, 'some/path', /parts/, ::Perspective::Request::Path.new( 'some/path' ), 'some/other', 'path', ''  )
     pathmap.paths.count.should == 4
     pathmap.paths[ 0 ].count.should == 4
     pathmap.paths[ 0 ][ 0 ].is_a?( ::Perspective::Request::Path::PathPart::Variable ).should == true
@@ -32,7 +33,7 @@ describe ::Perspective::Request::PathMap do
 
   it 'has a paths array that will create paths from descriptors when inserted' do
     
-    pathmap = ::Perspective::Request::PathMap.new( :name )
+    pathmap = ::Perspective::Request::Pathmap.new( :name )
     pathmap.paths.count.should == 0    
     
     #==========#
@@ -259,7 +260,7 @@ describe ::Perspective::Request::PathMap do
 	###########
 
   it 'it can match for any path included in pathmap; first path definition to match wins' do
-    pathmap = ::Perspective::Request::PathMap.new( :name, :variable, 'some/path', /parts/, ::Perspective::Request::Path.new( 'some/path' ), 'some/other', 'path', ''  )
+    pathmap = ::Perspective::Request::Pathmap.new( :name, :variable, 'some/path', /parts/, ::Perspective::Request::Path.new( 'some/path' ), 'some/other', 'path', ''  )
     
     pathmap.match( ::Perspective::Request::Path::RequestPath.new( 'and/some/path/parts' ) ).should == true
     pathmap.match( ::Perspective::Request::Path::RequestPath.new( 'some/path' ) ).should == true

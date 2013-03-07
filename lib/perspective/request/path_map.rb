@@ -1,5 +1,4 @@
-
-begin ; require 'development' ; rescue ::LoadError ; end
+# -*- encoding : utf-8 -*-
 
 require 'perspective/request/path'
 
@@ -9,13 +8,13 @@ require_relative './namespaces'
 # source file requires
 require_relative './requires.rb'
 
-class ::Perspective::Request::PathMap
+class ::Perspective::Request::Pathmap
 
-  # A PathMap is a grouping of one or more paths under one name. 
+  # A Pathmap is a grouping of one or more paths under one name. 
   # The name can then be used in combination with named parameters to construct an output url. 
   
-  include ::Perspective::Request::PathMap::Definition
-  include ::Perspective::Request::PathMap::Matching
-  include ::Perspective::Request::PathMap::URLs
+  include ::Perspective::Request::Pathmap::Definition
+  include ::Perspective::Request::Pathmap::Matching
+  include ::Perspective::Request::Pathmap::URLs
   
 end

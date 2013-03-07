@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 
-module ::Perspective::Request::PathMap::Matching
+module ::Perspective::Request::Pathmap::Matching
 
   ###########
 	#  match  #

@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 
-module ::Perspective::Request::PathMap::URLs
+module ::Perspective::Request::Pathmap::URLs
 
   ###################
   #  construct_url  #

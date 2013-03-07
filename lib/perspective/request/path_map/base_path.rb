@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 
-class ::Perspective::Request::PathMap::BasePath < ::Perspective::Request::PathMap
+class ::Perspective::Request::Pathmap::BasePath < ::Perspective::Request::Pathmap
   
   #####################
 	#  match_condition  #

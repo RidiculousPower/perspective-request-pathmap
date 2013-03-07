@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 
-module ::Perspective::Request::PathMap::Definition
+module ::Perspective::Request::Pathmap::Definition
   
   include ::CascadingConfiguration::Array
   include ::CascadingConfiguration::Array::Unique
@@ -11,7 +12,6 @@ module ::Perspective::Request::PathMap::Definition
   def initialize( name, *paths_and_or_parts )
     
     @name = name
-    
     paths.concat( paths_and_or_parts )
     
   end
@@ -47,7 +47,7 @@ module ::Perspective::Request::PathMap::Definition
       paths = nil
       path = nil
       
-      if paths_and_or_parts.is_a?( ::Array )
+      if ::Array === paths_and_or_parts
         paths = regularize_paths( *paths_and_or_parts )
       else
         path = paths_and_or_parts
@@ -61,21 +61,14 @@ module ::Perspective::Request::PathMap::Definition
         
         # if the index already exists, replace it with the first element and insert the rest after
         if index < count
-        
           first_item = paths.shift
-        
           super( index, first_item )
-
           insert( index, *paths )
-
           # add it back on so we can return paths as added
           paths.unshift( first_item )
-        
         # otherwise, insert them all
         else
-
           insert( index, *paths )
-      
         end
       
       end
@@ -110,11 +103,7 @@ module ::Perspective::Request::PathMap::Definition
 
     def concat( *paths_and_or_parts )
 
-      paths_and_or_parts.each do |this_paths_and_or_parts|
-
-        super( *regularize_paths( *this_paths_and_or_parts ) )
-        
-      end
+      paths_and_or_parts.each { |this_paths_and_or_parts| super( *regularize_paths( *this_paths_and_or_parts ) ) }
       
       return self
 

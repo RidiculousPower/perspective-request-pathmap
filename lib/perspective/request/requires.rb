@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 
-basepath = 'path_map'
+basepath = 'pathmap'
 
 files = [
 

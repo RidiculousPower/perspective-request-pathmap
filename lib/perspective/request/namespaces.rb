@@ -1,5 +1,6 @@
+# -*- encoding : utf-8 -*-
 
-class ::Perspective::Request::PathMap
+class ::Perspective::Request::Pathmap
   module Definition
   end
   module Matching
